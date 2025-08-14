@@ -9,7 +9,21 @@ function Home() {
   const [error,setError] = useState(null);
   const [loading,setLoading] = useState(true);
   
-
+  useEffect(() => {
+    const loadPopularMovie = async () => {
+      try {
+        const popularMovies = await getPopularMovies();
+        setMovies(popularMovies);
+      } catch (error) {
+        console.error("Failed to fetch movies:", error);
+        setError("Failed to fetch movie");
+      }
+      finally{
+        setLoading(false);
+      }
+    };
+    loadPopularMovie();
+  } , []);
 
   function onSearch(e) {
     e.preventDefault();
