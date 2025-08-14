@@ -11,6 +11,11 @@ function Home() {
   
 
 
+  function onSearch(e) {
+    e.preventDefault();
+    setSearchQuery("");
+    console.log("searching for :", searchQuery);
+  }
 
   return (
     <>
