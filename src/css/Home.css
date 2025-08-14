@@ -1,16 +1,48 @@
 .Home {
-  max-width: 1200px;
+  max-width: 1450px;
   margin: 0 auto;
   padding: 2rem;
   min-height: 100vh;
 }
 
+.home-title {
+  font-size: 2.3rem; /* adjust as needed */
+  font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    #ff512f,
+    #dd2476,
+    #24c6dc,
+    #514a9d,
+    #ff512f
+  );
+  background-size: 1000% 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 25s ease infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 /* Search form styles */
 .search-form {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 3rem;
+  justify-content: right;
+  align-items: right;
+  margin-bottom: 5rem;
+  margin-top: -5rem;
   padding: 2rem 0;
 }
 
@@ -18,11 +50,12 @@
   background: var(--search-bg);
   border: 2px solid var(--search-border);
   border-radius: 50px 0 0 50px;
-  padding: 1rem 1.5rem;
+  padding: 1rem 1rem;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
   color: var(--text-primary);
-  width: 400px;
+  width: 200px;
+  height: 3em;
   outline: none;
   transition: var(--transition);
   backdrop-filter: blur(10px);
@@ -33,16 +66,17 @@
 }
 
 .search-input:focus {
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 0 20px rgba(102, 126, 234, 0.2);
-  width: 500px;
+  height: 3em;
+  width: 250px;
+  outline: none;
+  box-shadow: 0 0 5px #dd2476; /* pink glow */
 }
 
 .submit-button {
   background: var(--gradient);
   border: none;
   border-radius: 0 50px 50px 0;
-  padding: 1rem 2rem;
+  padding: 0.8rem 0.8rem;
   color: white;
   font-family: 'Inter', sans-serif;
   font-size: 1rem;
@@ -55,12 +89,14 @@
 
 .submit-button:hover {
   transform: scale(1.02);
-  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
-  border-color: rgba(102, 126, 234, 0.5);
-}
+  outline: none;
+  border: none;
 
+}
+.submit-button:focus,
 .submit-button:active {
-  transform: scale(0.98);
+  outline: none;
+  box-shadow: 0 0 5px #dd2476; /* pink glow */
 }
 
 /* Movie grid */
