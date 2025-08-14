@@ -1,7 +1,12 @@
-<<<<<<< HEAD
-# React + Vite
+# MovieHUB
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+MovieHUB is a React app that lets users search movies via The Movie Database (TMDB) API, view details like title, release year, and description, and save favorites using localStorage. It offers real-time search, a responsive design, and an easy way to manage a personal watchlist.
+
+---
+
+## React + Vite
+
+This project was built using React and Vite, providing a minimal setup to get React working with HMR and some ESLint rules.
 
 Currently, two official plugins are available:
 
@@ -11,7 +16,3 @@ Currently, two official plugins are available:
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# MovieHUB
-MovieHUB is a React app that lets users search movies via The Movie Database (TMDB) API, view details like title, release year, and description, and save favorites using localStorage. It offers real-time search, a responsive design, and an easy way to manage a personal watchlist.
->>>>>>> b601a8bcfd4e71a1ca74a174d03c3ebd7d0685a3
