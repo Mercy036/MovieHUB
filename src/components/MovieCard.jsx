@@ -1,8 +1,10 @@
 import {imageBaseUrl} from "../services/api";
 import "../css/MovieCard.css";
-
+import { useMovieContext } from "../contexts/MovieContexts";
 
 function movieCard({movie}){
+  const {isFavorite ,addToFavorites,removeFromFavoritees} = useMovieContext()
+  const favorite = isFavorite(movie.id)
   
   function onFavorite(){
     alert("CLICKED")
@@ -15,7 +17,7 @@ function movieCard({movie}){
     e.target.src = "https://www.ledr.com/colours/black.jpg";
   }}/>
         <div className="movie-overlay">
-          <button className="favorite-button" onClick={onFavorite}>
+          <button className={`favorite-button ${favorite ? "active" : ""}`} onClick={onFavorite}>
             ❤️
           </button>
         </div>
