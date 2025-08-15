@@ -1,270 +1,86 @@
-.Favorites {
+/* Favorites.css */
+.favorites {
+  padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
-  min-height: 100vh;
+  min-height: 80vh;
 }
 
-/* Page Header */
-.favorites-header {
-  text-align: center;
-  margin-bottom: 3rem;
-  padding: 2rem 0;
-}
-
-.favorites-title {
+.favorites h2 {
+  color: #333;
   font-size: 2.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
   font-weight: 700;
-  background: var(--gradient);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 30px rgba(102, 126, 234, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 2px;
 }
 
-.favorites-subtitle {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
+.favorites h3 {
+  color: #666;
+  font-size: 1.2rem;
+  text-align: center;
   font-weight: 400;
-}
-
-.favorites-count {
-  display: inline-block;
-  background: var(--accent-color);
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  font-weight: 600;
   margin-top: 1rem;
-  border: 1px solid rgba(102, 126, 234, 0.3);
 }
 
-/* Favorites Grid */
-.favorites-grid {
+/* Movie Grid Layout */
+.movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   gap: 2rem;
   margin-top: 2rem;
 }
 
-/* Empty Favorites State */
-.empty-favorites {
-  grid-column: 1 / -1;
+/* Empty state styling */
+.favorites:has(h2:contains("NO FAVORITE")) {
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  padding: 4rem 2rem;
+  align-items: center;
   text-align: center;
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  border: 2px dashed rgba(102, 126, 234, 0.3);
-  margin-top: 2rem;
+  min-height: 60vh;
 }
 
-.empty-favorites-icon {
-  font-size: 4rem;
+.favorites h2:contains("NO FAVORITE") {
+  color: #888;
+  font-size: 2rem;
   margin-bottom: 1rem;
-  opacity: 0.5;
-}
-
-.empty-favorites h3 {
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.empty-favorites p {
-  font-size: 1.1rem;
-  color: var(--text-secondary);
-  max-width: 400px;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.browse-movies-btn {
-  background: var(--gradient);
-  border: none;
-  padding: 1rem 2rem;
-  border-radius: 25px;
-  color: white;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.browse-movies-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
-}
-
-.browse-movies-btn:active {
-  transform: translateY(0);
-}
-
-/* Filter/Sort Controls */
-.favorites-controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
-  padding: 1rem;
-  background: var(--card-bg);
-  border-radius: var(--border-radius);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  flex-wrap: wrap;
-  gap: 1rem;
-}
-
-.favorites-search {
-  background: var(--search-bg);
-  border: 1px solid var(--search-border);
-  border-radius: 25px;
-  padding: 0.75rem 1.5rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: var(--text-primary);
-  min-width: 250px;
-  outline: none;
-  transition: var(--transition);
-}
-
-.favorites-search::placeholder {
-  color: var(--text-secondary);
-}
-
-.favorites-search:focus {
-  border-color: rgba(102, 126, 234, 0.5);
-  box-shadow: 0 0 15px rgba(102, 126, 234, 0.2);
-}
-
-.favorites-sort {
-  background: var(--search-bg);
-  border: 1px solid var(--search-border);
-  border-radius: 25px;
-  padding: 0.75rem 1.5rem;
-  font-family: 'Inter', sans-serif;
-  font-size: 1rem;
-  color: var(--text-primary);
-  outline: none;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.favorites-sort:focus {
-  border-color: rgba(102, 126, 234, 0.5);
-}
-
-.clear-favorites-btn {
-  background: transparent;
-  border: 2px solid var(--error);
-  color: var(--error);
-  padding: 0.75rem 1.5rem;
-  border-radius: 25px;
-  font-family: 'Inter', sans-serif;
-  font-size: 0.9rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: var(--transition);
-}
-
-.clear-favorites-btn:hover {
-  background: var(--error);
-  color: white;
-  transform: translateY(-1px);
-}
-
-.clear-favorites-btn:active {
-  transform: translateY(0);
-}
-
-/* Navigation/Back Button */
-.back-to-home {
-  position: fixed;
-  top: 2rem;
-  left: 2rem;
-  background: var(--gradient);
-  border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition);
-  z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-  color: white;
-  font-size: 1.2rem;
-  text-decoration: none;
-}
-
-.back-to-home:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .Favorites {
+  .favorites {
     padding: 1rem;
   }
   
-  .favorites-title {
+  .favorites h2 {
     font-size: 2rem;
+    margin-bottom: 1.5rem;
   }
   
-  .favorites-controls {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  
-  .favorites-search {
-    min-width: auto;
-    width: 100%;
-  }
-  
-  .favorites-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 1rem;
-  }
-  
-  .back-to-home {
-    top: 1rem;
-    left: 1rem;
-    width: 45px;
-    height: 45px;
-    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .favorites-header {
-    padding: 1rem 0;
+  .favorites {
+    padding: 0.5rem;
   }
   
-  .favorites-title {
-    font-size: 1.8rem;
+  .favorites h2 {
+    font-size: 1.5rem;
+    letter-spacing: 1px;
   }
   
-  .favorites-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .empty-favorites {
-    padding: 2rem 1rem;
-  }
-  
-  .empty-favorites h3 {
-    font-size: 1.3rem;
-  }
-  
-  .empty-favorites p {
+  .favorites h3 {
     font-size: 1rem;
+  }
+  
+  .movie-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
   }
 }
