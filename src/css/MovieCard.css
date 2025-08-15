@@ -210,12 +210,12 @@
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  text-align: left; /* This ensures left alignment for all children */
+  text-align: left; 
 }
 
 .movie-info h3,
 .movie-info p {
-  text-align: left; /* Explicit left alignment for title and year */
+  text-align: left; 
 }
 
 @media (max-width: 768px) {

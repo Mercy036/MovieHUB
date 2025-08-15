@@ -6,7 +6,7 @@ export const useMovieContext = () => useContext(MovieContext)
 
 export const MovieProvider = ({children}) => {
     const [favorites, setFavorites] = useState(() => {
-        // Initialize state from localStorage immediately
+        
         const storedFavs = localStorage.getItem("favorites")
         if (storedFavs) {
             try {

@@ -68,9 +68,6 @@
   }
 }
 
-/* --- Styles from MovieCard.css --- */
-
-/* Movie Card Component */
 .movie-card {
   background: var(--card-bg);
   border-radius: var(--border-radius);
@@ -286,15 +283,13 @@
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
-  text-align: left; /* This ensures left alignment for all children */
+  text-align: left;
 }
 
 .movie-info h3,
 .movie-info p {
-  text-align: left; /* Explicit left alignment for title and year */
+  text-align: left; 
 }
-
-/* --- Media Queries --- */
 
 @media (max-width: 768px) {
   .favorites {
@@ -313,7 +308,6 @@
     margin: 2rem auto 0;
   }
 
-  /* Movie Card Responsive */
   .movie-card {
     margin: 0 auto;
     max-width: 350px;
@@ -360,7 +354,6 @@
     max-width: 100%;
   }
 
-  /* Movie Card Responsive */
   .movie-card {
     max-width: 100%;
   }
