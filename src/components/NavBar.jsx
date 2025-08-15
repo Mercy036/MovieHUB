@@ -22,14 +22,9 @@ function Navigation() {
               Favorites
             </Link>
           </NavbarItem>
-          <NavbarItem isActive>
-            <Link href="/search" aria-current="page">
-              Search
-            </Link>
-          </NavbarItem>
           <NavbarItem>
             <Link color="foreground" href="/about">
-              About
+              Watch Later
             </Link>
           </NavbarItem>
         </NavbarContent>

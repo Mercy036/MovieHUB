@@ -5,7 +5,6 @@
   margin: 0 auto;
   min-height: 80vh;
   background: var(--bg-primary, #0f0f23);
-  animation: fadeIn 0.6s ease-out;
 }
 
 .favorites h2 {
@@ -17,7 +16,6 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-
   background: linear-gradient(135deg, var(--accent-color, #667eea), var(--secondary-color, #816999));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -70,21 +68,275 @@
   }
 }
 
+/* --- Styles from MovieCard.css --- */
+
+/* Movie Card Component */
+.movie-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  position: relative;
+  transition: var(--transition);
+  box-shadow: 0 8px 32px var(--shadow);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transform: translateY(0);
+  animation: fadeInUp 0.6s ease-out;
+  height: fit-content;
+}
+
+.movie-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  background: var(--card-hover);
+}
+
+.movie-poster {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 400px;
+}
+
+.movie-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+  display: block;
+}
+
+.movie-card:hover .movie-img {
+  transform: scale(1.05);
+}
+
+/* Movie Overlay */
+.movie-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 1rem;
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.movie-card:hover .movie-overlay {
+  opacity: 1;
+}
+
+.favorite-button {
+  background: rgba(255, 138, 138, 0.9);
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: var(--transition);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: scale(0.8);
+}
+
+.favorite-button:hover {
+  background: rgba(255, 138, 138, 1);
+  transform: scale(1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+.favorite-button:active {
+  transform: scale(0.9);
+}
+
+.favorite-button.favorited {
+  background: linear-gradient(135deg, #ff6b6b, #ff5252);
+  color: white;
+  transform: scale(1);
+}
+
+.favorite-button.favorited:hover {
+  background: linear-gradient(135deg, #ff5252, #f44336);
+  transform: scale(1.1);
+}
+
+/* Movie Info */
+.movie-info {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.movie-info h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  max-width: 1000px;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  align-items: left;
+}
+
+.movie-info p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+  align-items: left;
+  justify-content: left;
+  font-weight: 500;
+}
+
+.movie-rating {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: var(--accent-color);
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  min-width: 50px;
+  text-align: center;
+  color: var(--text-primary);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  opacity: 0;
+  transition: var(--transition);
+}
+
+.movie-card:hover .movie-rating {
+  opacity: 1;
+}
+
+.movie-rating.green {
+  color: var(--success);
+  background: rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.movie-rating.orange {
+  color: var(--warning);
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.movie-rating.red {
+  color: var(--error);
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.movie-overview {
+  background: linear-gradient(135deg,
+    rgba(22, 33, 62, 0.98) 0%,
+    rgba(26, 26, 46, 0.95) 50%,
+    rgba(30, 39, 73, 0.98) 100%);
+  color: var(--text-primary);
+  padding: 1.5rem;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  max-height: 70%;
+  transform: translateY(100%);
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(20px);
+  border-top: 2px solid rgba(102, 126, 234, 0.3);
+  border-radius: 12px 12px 0 0;
+  overflow-y: auto;
+  box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.movie-card:hover .movie-overview {
+  transform: translateY(0);
+}
+
+.movie-overview h4 {
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(102, 126, 234, 0.3);
+}
+
+.movie-overview p {
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.movie-info {
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  text-align: left; /* This ensures left alignment for all children */
+}
+
+.movie-info h3,
+.movie-info p {
+  text-align: left; /* Explicit left alignment for title and year */
+}
+
+/* --- Media Queries --- */
+
 @media (max-width: 768px) {
   .favorites {
     padding: 1.5rem;
   }
-  
+
   .favorites h2 {
     font-size: 2rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .movie-grid {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 2rem;
     max-width: 350px;
     margin: 2rem auto 0;
+  }
+
+  /* Movie Card Responsive */
+  .movie-card {
+    margin: 0 auto;
+    max-width: 350px;
+  }
+
+  .movie-poster {
+    height: 350px;
+  }
+
+  .movie-info h3 {
+    font-size: 1.1rem;
+    align-items: left;
+    justify-content: left;
+  }
+
+  .movie-info p {
+    font-size: 0.9rem;
+  }
+
+  .favorite-button {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
   }
 }
 
@@ -92,19 +344,32 @@
   .favorites {
     padding: 1rem;
   }
-  
+
   .favorites h2 {
     font-size: 1.5rem;
     letter-spacing: 1px;
   }
-  
+
   .favorites h3 {
     font-size: 1rem;
   }
-  
+
   .movie-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
     max-width: 100%;
+  }
+
+  /* Movie Card Responsive */
+  .movie-card {
+    max-width: 100%;
+  }
+
+  .movie-poster {
+    height: 300px;
+  }
+
+  .movie-info {
+    padding: 1rem;
   }
 }

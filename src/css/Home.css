@@ -93,6 +93,7 @@
   font-family: "Inter", sans-serif;
   font-size: 1rem;
   font-weight: 600;
+  height: 2.99em;
   cursor: pointer;
   transition: var(--transition);
   border: 2px solid var(--search-border);
