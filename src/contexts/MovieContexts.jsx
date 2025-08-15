@@ -20,27 +20,26 @@ export const MovieProvider = ({children}) => {
     });
 
     useEffect (() => {
-        // Only update localStorage when favorites actually changes
-        if (favorites.length >= 0) { // This ensures it runs even for empty arrays
+        if (favorites.length >= 0) { 
             localStorage.setItem('favorites', JSON.stringify(favorites))
-            console.log("Updated localStorage with favorites:", favorites) // Debug line
+            console.log("Updated localStorage with favorites:", favorites)
         }
     }, [favorites])
 
     const addToFavorites = (movie) => {
-        console.log("Adding movie to favorites:", movie.title) // Debug
+        console.log("Adding movie to favorites:", movie.title)
         setFavorites(prev => {
             const newFavorites = [...prev, movie]
-            console.log("New favorites after add:", newFavorites) // Debug
+            console.log("New favorites after add:", newFavorites)
             return newFavorites
         })
     }
 
     const removeFromFavorites = (movieId) => {
-        console.log("Removing movie from favorites:", movieId) // Debug
+        console.log("Removing movie from favorites:", movieId)
         setFavorites(prev => {
             const newFavorites = prev.filter(movie => movie.id !== movieId)
-            console.log("New favorites after remove:", newFavorites) // Debug
+            console.log("New favorites after remove:", newFavorites)
             return newFavorites
         })
     }
