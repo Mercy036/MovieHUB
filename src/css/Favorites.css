@@ -1,39 +1,46 @@
 /* Favorites.css */
 .favorites {
   padding: 2rem;
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
   min-height: 80vh;
+  background: var(--bg-primary, #0f0f23);
+  animation: fadeIn 0.6s ease-out;
 }
 
 .favorites h2 {
-  color: #333;
+  color: var(--text-primary, #ffffff);
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
+  background: linear-gradient(135deg, var(--accent-color, #667eea), var(--secondary-color, #764ba2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .favorites h3 {
-  color: #666;
+  color: var(--text-secondary, #a0aec0);
   font-size: 1.2rem;
   text-align: center;
   font-weight: 400;
   margin-top: 1rem;
 }
 
-/* Movie Grid Layout */
+/* Movie Grid Layout - Matching your MovieCard dimensions (400px height + padding) */
 .movie-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2.5rem;
   margin-top: 2rem;
+  padding: 1rem 0;
 }
 
-/* Empty state styling */
-.favorites:has(h2:contains("NO FAVORITE")) {
+/* Empty state styling - centered layout when no favorites */
+.favorites:not(:has(.movie-grid)) {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -42,16 +49,30 @@
   min-height: 60vh;
 }
 
-.favorites h2:contains("NO FAVORITE") {
-  color: #888;
+.favorites h2:first-child {
+  color: var(--text-secondary, #a0aec0);
   font-size: 2rem;
   margin-bottom: 1rem;
+  background: none;
+  -webkit-text-fill-color: initial;
 }
 
-/* Responsive Design */
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design - Matching your MovieCard breakpoints */
 @media (max-width: 768px) {
   .favorites {
-    padding: 1rem;
+    padding: 1.5rem;
   }
   
   .favorites h2 {
@@ -60,14 +81,16 @@
   }
   
   .movie-grid {
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 1rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 350px;
+    margin: 2rem auto 0;
   }
 }
 
 @media (max-width: 480px) {
   .favorites {
-    padding: 0.5rem;
+    padding: 1rem;
   }
   
   .favorites h2 {
@@ -80,7 +103,8 @@
   }
   
   .movie-grid {
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 0.5rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
   }
 }
