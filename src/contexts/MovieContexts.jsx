@@ -1,5 +1,4 @@
 import {createContext, useContext, useState, useEffect } from "react";
-import WatchLater from "../pages/WatchLater";
 
 const MovieContext = createContext();
 
@@ -7,7 +6,6 @@ export const useMovieContext = () => useContext(MovieContext)
 
 export const MovieProvider = ({children}) => {
     const [favorites, setFavorites] = useState(() => {
-        
         const storedFavs = localStorage.getItem("favorites")
         if (storedFavs) {
             try {
@@ -49,7 +47,7 @@ export const MovieProvider = ({children}) => {
         return favorites.some(movie => movie.id === movieId)
     }
     
-    const [watchLater , setWatchLater] = useState(() => {
+    const [watchLater, setWatchLater] = useState(() => {
         const storedWatchLater = localStorage.getItem("watchLater")
         if (storedWatchLater) {
             try {
@@ -65,12 +63,13 @@ export const MovieProvider = ({children}) => {
     useEffect(() => {
         if (watchLater.length >= 0) {
             localStorage.setItem('watchLater', JSON.stringify(watchLater))
-            console.log("Updated localStorage with favorites:", watchLater)
-        }}, [watchLater])
+            console.log("Updated localStorage with watchLater:", watchLater)
+        }
+    }, [watchLater])
     
     const removeFromWatchLater = (movieId) => {
-        console.log("Removing from watch later",movieId)
-        setWatchLater(prev =>{
+        console.log("Removing from watch later", movieId)
+        setWatchLater(prev => {
             const newWatchLater = prev.filter(movie => movie.id !== movieId)
             console.log("New watch later after remove:", newWatchLater)
             return newWatchLater
@@ -81,24 +80,26 @@ export const MovieProvider = ({children}) => {
         return watchLater.some(movie => movie.id === movieId)
     }
 
-
-    const addToWatchLater = (movie) =>{
-        console.log ("Adding to watch later :",movie.title)
+    const addToWatchLater = (movie) => {
+        console.log("Adding to watch later:", movie.title)
         setWatchLater(prev => {
+            // Check if movie already exists to prevent duplicates
+            if (prev.some(existingMovie => existingMovie.id === movie.id)) {
+                console.log("Movie already in watch later")
+                return prev
+            }
             const newWatchLater = [...prev, movie]
             console.log("New watch later after add:", newWatchLater)
             return newWatchLater
-        }
-    )
+        })
     }
-    
     
     const values = {
         favorites,
         addToFavorites,
         removeFromFavorites,
         isFavorites,
-        WatchLater,
+        watchLater, // Fixed: Export watchLater state, not WatchLater component
         addToWatchLater,
         removeFromWatchLater,
         isWatchLater

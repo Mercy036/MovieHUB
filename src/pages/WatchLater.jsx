@@ -1,26 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import MovieCard from "../components/MovieCard";
-import { searchMovie, getPopularMovies } from "../services/api";
 import "../css/Watch_Later.css";
 import {useMovieContext} from "../contexts/MovieContexts";
 
 function WatchLater() {
-  const [watchLaterMovies, setWatchLaterMovies] = useState([]);
+  const { watchLater } = useMovieContext();
 
-  const { addToWatchLater, removeFromWatchLater ,watchLater} = useMovieContext();
-
-  useEffect(() => {
-    const storedMovies = JSON.parse(localStorage.getItem("watchLater")) || [];
-    setWatchLaterMovies(storedMovies);
-  }, []);
-
-  
-
-  if (watchLaterMovies.length === 0 ) {
+  if (watchLater.length === 0) {
     return (
-        <div className = "watch-later">
+        <div className="watch-later">
             <h2>
-                NO MOVIES IN ADDED TO WATCH LATER
+                NO MOVIES ADDED TO WATCH LATER
             </h2>
         </div>
     )
