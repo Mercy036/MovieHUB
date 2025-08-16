@@ -23,7 +23,7 @@ function Navigation() {
             </Link>
           </NavbarItem>
           <NavbarItem>
-            <Link color="foreground" href="/about">
+            <Link color="foreground" href="/watchlater">
               Watch Later
             </Link>
           </NavbarItem>

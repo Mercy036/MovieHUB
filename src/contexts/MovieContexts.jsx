@@ -1,4 +1,5 @@
 import {createContext, useContext, useState, useEffect } from "react";
+import WatchLater from "../pages/WatchLater";
 
 const MovieContext = createContext();
 
@@ -47,12 +48,60 @@ export const MovieProvider = ({children}) => {
     const isFavorites = (movieId) => {
         return favorites.some(movie => movie.id === movieId)
     }
+    
+    const [watchLater , setWatchLater] = useState(() => {
+        const storedWatchLater = localStorage.getItem("watchLater")
+        if (storedWatchLater) {
+            try {
+                return JSON.parse(storedWatchLater)
+            } catch (error) {
+                console.error("Error parsing watch later from localStorage:", error)
+                return []
+            }
+        }
+        return []
+    })
+    
+    useEffect(() => {
+        if (watchLater.length >= 0) {
+            localStorage.setItem('watchLater', JSON.stringify(watchLater))
+            console.log("Updated localStorage with favorites:", watchLater)
+        }}, [watchLater])
+    
+    const removeFromWatchLater = (movieId) => {
+        console.log("Removing from watch later",movieId)
+        setWatchLater(prev =>{
+            const newWatchLater = prev.filter(movie => movie.id !== movieId)
+            console.log("New watch later after remove:", newWatchLater)
+            return newWatchLater
+        })
+    }
 
+    const isWatchLater = (movieId) => {
+        return watchLater.some(movie => movie.id === movieId)
+    }
+
+
+    const addToWatchLater = (movie) =>{
+        console.log ("Adding to watch later :",movie.title)
+        setWatchLater(prev => {
+            const newWatchLater = [...prev, movie]
+            console.log("New watch later after add:", newWatchLater)
+            return newWatchLater
+        }
+    )
+    }
+    
+    
     const values = {
         favorites,
         addToFavorites,
         removeFromFavorites,
-        isFavorites
+        isFavorites,
+        WatchLater,
+        addToWatchLater,
+        removeFromWatchLater,
+        isWatchLater
     }
 
     return (

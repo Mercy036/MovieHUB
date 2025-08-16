@@ -6,6 +6,11 @@ function MovieCard({movie}){
   const {isFavorites, addToFavorites, removeFromFavorites, favorites} = useMovieContext()
   const favorite = isFavorites(movie.id)
   
+  function onWatchLater(e){
+    e.preventDefault()
+    console.log("adding to watch later",movie )
+  }
+
   function onFavorite(e){
     e.preventDefault()
     console.log("Current favorites:", favorites);
@@ -16,6 +21,7 @@ function MovieCard({movie}){
       console.log("Adding to favorites:", movie);
       addToFavorites(movie)
     }
+
   }
   
   return (
@@ -40,6 +46,10 @@ function MovieCard({movie}){
       </div>
       <div className="movie-info">
         <h3>{movie.title}</h3>
+        <button className="watch-later-button" onClick={onWatchLater}>
+          Add to <br/>
+          Watch Later
+        </button>
         <p>{movie.release_date?.split("-")[0]}</p>
       </div>
     </div>
