@@ -184,8 +184,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   position: absolute;
-  right: 1rem;
-  top: 3.8rem;
+  right : 0.5rem;
+  top : 4rem;
   overflow: hidden;
   margin-left: auto;
   display: block;
@@ -240,18 +240,18 @@
 }
 
 .watch-later-button.added {
-  background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
   box-shadow: 
-    0 0 20px rgba(76, 175, 80, 0.4),
+    0 0 20px rgba(220, 53, 69, 0.4),
     0 4px 15px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(76, 175, 80, 0.3);
+  border: 1px solid rgba(220, 53, 69, 0.3);
 }
 
 .watch-later-button.added:hover {
-  background: linear-gradient(135deg, #45a049 0%, #3d8b40 100%);
+  background: linear-gradient(135deg, #c82333 0%, #b21e2f 100%);
   box-shadow: 
-    0 0 30px rgba(76, 175, 80, 0.6),
+    0 0 30px rgba(220, 53, 69, 0.6),
     0 6px 20px rgba(0, 0, 0, 0.4),
     inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }

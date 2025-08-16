@@ -3,15 +3,19 @@ import "../css/MovieCard.css";
 import { useMovieContext } from "../contexts/MovieContexts";
 
 function MovieCard({movie}){
-  const {isFavorites, addToFavorites, removeFromFavorites, favorites, addToWatchLater, isWatchLater} = useMovieContext()
+  const {isFavorites, addToFavorites, removeFromFavorites, favorites, addToWatchLater, isWatchLater, removeFromWatchLater} = useMovieContext()
   const favorite = isFavorites(movie.id)
   const watchLater = isWatchLater(movie.id)
   
   function onWatchLater(e){
     e.preventDefault() // Fixed: Added parentheses
-    console.log("adding to watch later", movie)
-    if (!watchLater) { // Only add if not already in watch later
-      addToWatchLater(movie) // Fixed: Actually call the function
+    console.log("toggling watch later for", movie.title)
+    if (watchLater) {
+      console.log("Removing from watch later:", movie.id)
+      removeFromWatchLater(movie.id) // Remove if already in watch later
+    } else {
+      console.log("Adding to watch later:", movie.title)
+      addToWatchLater(movie) // Add if not in watch later
     }
   }
 
@@ -52,9 +56,8 @@ function MovieCard({movie}){
         <button 
           className={`watch-later-button ${watchLater ? "added" : ""}`}
           onClick={onWatchLater}
-          disabled={watchLater}
         >
-          {watchLater ? "Added to\nWatch Later" : "Add to\nWatch Later"}
+          {watchLater ? "Remove from\nWatch Later" : "Add to\nWatch Later"}
         </button>
         <p>{movie.release_date?.split("-")[0]}</p>
       </div>
