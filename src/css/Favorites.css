@@ -8,7 +8,7 @@
 }
 
 .favorites h2 {
-  color: rgb(175, 54, 54);
+  color: rgba(255, 255, 255, 0.581);
   font-size: 3.5rem;
   margin-bottom: 2rem;
   margin-top: 5rem;
@@ -19,6 +19,8 @@
   background: linear-gradient(135deg, var(--accent-color, #667eea), var(--secondary-color, #816999));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  background: none;
+  -webkit-text-fill-color: initial;
   background-clip: text;
   margin-top: 5rem;
 }
