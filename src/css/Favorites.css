@@ -9,7 +9,7 @@
 
 .favorites h2 {
   color: rgb(175, 54, 54);
-  font-size: 5rem;
+  font-size: 3.5rem;
   margin-bottom: 2rem;
   margin-top: 5rem;
   text-align: center;
@@ -20,6 +20,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  margin-top: 5rem;
 }
 
 .favorites h3 {
@@ -28,6 +29,12 @@
   text-align: center;
   font-weight: 400;
   margin-top: 1rem;
+}
+
+.favorites h2 ,
+.favorites h3 {
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .movie-grid {
@@ -218,6 +225,27 @@
   -webkit-text-fill-color: transparent;
   animation: gradientMove 25s ease infinite;
   animation: glow 0.7s infinite alternate;
+}
+
+.favorites-title-nomovies {
+  cursor: pointer;
+  margin-top: 5rem;
+  font-size: 4.7rem; /* adjust as needed */
+  font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    #ff512f,
+    #dd2476,
+    #24c6dc,
+    #514a9d,
+    #ff512f
+  );
+  background-size: 1000% 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 25s ease infinite;
 }
 
 .movie-rating {

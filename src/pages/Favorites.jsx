@@ -12,7 +12,7 @@ function Favorites() {
   if (favorites.length === 0) {
     return (
       <div className="favorites">
-        <h1 className="favorites-title-movies" onClick={() => navigate("/")}>
+        <h1 className="favorites-title-nomovies" onClick={() => navigate("/")}>
           MovieHUB🎬
         </h1>
         <h2>NO FAVORITE MOVIES YET</h2>
