@@ -2,7 +2,9 @@ import React, { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import { searchMovie, getPopularMovies } from "../services/api";
 import "../css/Home.css";
+import { useNavigate } from "react-router-dom";
 function Home() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [movies, setMovies] = useState([]);
   const [error, setError] = useState(null);
@@ -53,7 +55,7 @@ function Home() {
   return (
     <>
       <div className="Home">
-        <h1 className="home-title">MovieHUB🎬</h1>
+        <h1 className="home-title" onClick={()=>navigate("/")}>MovieHUB🎬</h1>
         <div className="search-container">
           <form onSubmit={onSearch} className="search-form">
             <input

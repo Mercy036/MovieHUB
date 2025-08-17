@@ -6,6 +6,7 @@
 }
 
 .home-title {
+  cursor: pointer;
   font-size: 2.3rem; /* adjust as needed */
   font-weight: bold;
   background: linear-gradient(
