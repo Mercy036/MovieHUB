@@ -198,6 +198,28 @@
   font-weight: 500;
 }
 
+.favorites-title-movies,
+.favorites-title-nomovies {
+  cursor: pointer;
+  font-size: 2.3rem; /* adjust as needed */
+  font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    #ff512f,
+    #dd2476,
+    #24c6dc,
+    #514a9d,
+    #ff512f
+  );
+  background-size: 1000% 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 25s ease infinite;
+  animation: glow 0.7s infinite alternate;
+}
+
 .movie-rating {
   position: absolute;
   top: 1rem;
