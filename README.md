@@ -34,5 +34,5 @@ Follow these steps to run MovieHUB locally:
 
 ### 1. Clone the repository
 ```bash
-git clone https://github.com/your-username/moviehub.git
+git clone https://github.com/Mercy036/moviehub.git
 cd moviehub
