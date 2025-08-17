@@ -15,7 +15,7 @@ function Favorites() {
         <h1 className="favorites-title-nomovies" onClick={() => navigate("/")}>
           MovieHUB🎬
         </h1>
-        <h2>NO FAVORITE MOVIES YET</h2>
+        <h2 >NO FAVORITE MOVIES YET</h2>
         <h3>Add your Favorite Movies Now...</h3>
       </div>
     );
@@ -26,7 +26,7 @@ function Favorites() {
       <h1 className="favorites-title-movies" onClick={() => navigate("/")}>
         MovieHUB🎬
       </h1>
-      <h2>My Favorite Movies</h2>
+      <h2 className="movies-present">My Favorite Movies</h2>
       <div className="movie-grid">
         {favorites.map((movie) => (
           <MovieCard movie={movie} key={movie.id} />

@@ -9,20 +9,21 @@
 
 .favorites h2 {
   color: rgba(255, 255, 255, 0.581);
-  font-size: 3.5rem;
+  font-size: 4rem;
   margin-bottom: 2rem;
   margin-top: 5rem;
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, var(--accent-color, #667eea), var(--secondary-color, #816999));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background: none;
-  -webkit-text-fill-color: initial;
-  background-clip: text;
-  margin-top: 5rem;
+  text-decoration: underline;
+}
+
+@keyframes animate-gradient {
+  to{
+    background-position: 200%;
+
+  }
 }
 
 .favorites h3 {
@@ -227,6 +228,10 @@
   -webkit-text-fill-color: transparent;
   animation: gradientMove 25s ease infinite;
   animation: glow 0.7s infinite alternate;
+}
+
+.favorites-title-movies{
+  margin-left: -1.50rem;
 }
 
 .favorites-title-nomovies {

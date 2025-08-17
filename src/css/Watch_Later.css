@@ -8,18 +8,32 @@
 }
 
 .watch-later h2 {
-  color: rgb(138, 43, 226);
-  font-size: 5rem;
+  font-size: 4rem;
+  font-family: poppins, sans-serif;
   margin-bottom: 2rem;
   margin-top: 5rem;
   text-align: center;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 2px;
-  background: linear-gradient(135deg, var(--accent-color, #8a2be2), var(--secondary-color, #9932cc));
+  text-decoration: underline;
+
+}
+
+.movies-present{
+  background: linear-gradient(to right, #fc72ff, #8f68ff, #487bff, #8f68ff, #fc72ff);
+  background-size: 200%;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  background-clip: text;
+  animation: animate-gradient 2s linear infinite;
+}
+
+@keyframes animate-gradient {
+  to{
+    background-position: 200%;
+
+  }
 }
 
 .watch-later h3 {
@@ -29,6 +43,54 @@
   font-weight: 400;
   margin-top: 1rem;
 }
+
+
+.watch-later-title-movies,
+.watch-later-title-nomovies {
+  cursor: pointer;
+  font-size: 2.3rem; 
+  font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    #ff512f,
+    #dd2476,
+    #24c6dc,
+    #514a9d,
+    #ff512f
+  );
+  background-size: 1000% 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: glow 0.7s infinite alternate;
+}
+
+.watch-later-title-movies{
+  margin-left: -1.50rem;
+}
+
+.watch-later-title-nomovies {
+  cursor: pointer;
+  margin-top: 5rem;
+  font-size: 4.7rem; 
+  font-weight: bold;
+  background: linear-gradient(
+    270deg,
+    #ff512f,
+    #dd2476,
+    #24c6dc,
+    #514a9d,
+    #ff512f
+  );
+  background-size: 1000% 1000%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 25s ease infinite;
+}
+
 
 .movie-list {
   display: grid;
@@ -218,6 +280,18 @@
     0 0 15px rgba(138, 43, 226, 0.4),
     0 2px 10px rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.no-movies{
+  color: rgba(255, 255, 255, 0.581);
+  font-size: 4rem;
+  margin-bottom: 2rem;
+  margin-top: 5rem;
+  text-align: center;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  
 }
 
 /* Optional: Add a subtle animation */

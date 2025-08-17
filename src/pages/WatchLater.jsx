@@ -11,7 +11,7 @@ function WatchLater() {
     return (
         <div className="watch-later">
           <h1 className="watch-later-title-nomovies" onClick={()=> navigate("/")}>MovieHUB🎬</h1>
-          <h2>
+          <h2 className="no-movies">
               NO MOVIES ADDED TO WATCH LATER
           </h2>
         </div>
@@ -20,8 +20,8 @@ function WatchLater() {
 
   return (
     <div className="watch-later">
-      <h1 className="watch-later-title-nomovies" onClick={()=> navigate("/")}>MovieHUB🎬</h1>
-      <h2>Watch Later</h2>
+      <h1 className="watch-later-title-movies" onClick={()=> navigate("/")}>MovieHUB🎬</h1>
+      <h2 className="movies-present">Watch Later</h2>
       <div className="movie-list">
         {watchLater.map((movie) => (
           <MovieCard key={movie.id} movie={movie} />
