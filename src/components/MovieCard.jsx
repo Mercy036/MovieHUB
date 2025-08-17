@@ -8,14 +8,14 @@ function MovieCard({movie}){
   const watchLater = isWatchLater(movie.id)
   
   function onWatchLater(e){
-    e.preventDefault() // Fixed: Added parentheses
+    e.preventDefault() 
     console.log("toggling watch later for", movie.title)
     if (watchLater) {
       console.log("Removing from watch later:", movie.id)
-      removeFromWatchLater(movie.id) // Remove if already in watch later
+      removeFromWatchLater(movie.id)
     } else {
       console.log("Adding to watch later:", movie.title)
-      addToWatchLater(movie) // Add if not in watch later
+      addToWatchLater(movie)
     }
   }
 
@@ -52,7 +52,7 @@ function MovieCard({movie}){
         </div>
       </div>
       <div className="movie-info">
-        <h3>{movie.title}</h3>
+        <h3 className="movie-title-card">{movie.title}</h3>
         <button 
           className={`watch-later-button ${watchLater ? "added" : ""}`}
           onClick={onWatchLater}
