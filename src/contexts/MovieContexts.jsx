@@ -83,7 +83,6 @@ export const MovieProvider = ({children}) => {
     const addToWatchLater = (movie) => {
         console.log("Adding to watch later:", movie.title)
         setWatchLater(prev => {
-            // Check if movie already exists to prevent duplicates
             if (prev.some(existingMovie => existingMovie.id === movie.id)) {
                 console.log("Movie already in watch later")
                 return prev
@@ -99,7 +98,7 @@ export const MovieProvider = ({children}) => {
         addToFavorites,
         removeFromFavorites,
         isFavorites,
-        watchLater, // Fixed: Export watchLater state, not WatchLater component
+        watchLater, 
         addToWatchLater,
         removeFromWatchLater,
         isWatchLater

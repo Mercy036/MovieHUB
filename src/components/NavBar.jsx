@@ -5,7 +5,7 @@ import {
   Link,
   Button,
 } from "@nextui-org/react";
-import "../css/Navbar.css"; // Assuming you have a CSS file for Navbar styles"
+import "../css/Navbar.css"; 
 
 function Navigation() {
   return (
@@ -15,6 +15,11 @@ function Navigation() {
           <NavbarItem>
             <Link color="foreground" href="/">
               Home
+            </Link>
+          </NavbarItem>
+          <NavbarItem>
+            <Link color="foreground" href="/genres">
+              Genres
             </Link>
           </NavbarItem>
           <NavbarItem>
