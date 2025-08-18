@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import { MovieProvider } from "./contexts/MovieContexts";
 import WatchLater from "./pages/WatchLater";
+import Genres from "./pages/Genres";
 
 function App() {
   return (

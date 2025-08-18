@@ -1,0 +1,11 @@
+.genres-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;   /* full screen height */
+}
+
+.coming-soon {
+  font-size: 4rem;
+  text-align: center;
+}
