@@ -1,18 +1,38 @@
-# MovieHUB
+# 🎬 MovieHUB
 
-MovieHUB is a React app that lets users search movies via The Movie Database (TMDB) API, view details like title, release year, and description, and save favorites using localStorage. It offers real-time search, a responsive design, and an easy way to manage a personal watchlist.
+MovieHUB is a React app that lets users search for movies via **The Movie Database (TMDB) API**, view details like title and release year, and manage a personal movie collection.  
+You can **add movies to Favorites**, **save them to Watch Later**, and **remove them anytime**.  
+It offers real-time search, a responsive design, and an easy way to organize your movie watchlist.  
+
+🌐 **Live Demo:** [MovieHUB on Vercel](https://movie-hub-nine-zeta.vercel.app/)
 
 ---
 
-## React + Vite
+## ✨ Features
 
-This project was built using React and Vite, providing a minimal setup to get React working with HMR and some ESLint rules.
+- 🔎 **Search Movies** – Browse movies in real-time using the TMDB API  
+- ❤️ **Favorites** – Save and manage your favorite movies  
+- ⏰ **Watch Later** – Keep a separate watchlist for future viewing  
+- 🗑 **Remove Anytime** – Manage lists easily with one click  
+- 🎨 **Responsive UI** – Clean dark theme built with CSS  
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Tech Stack
 
-## Expanding the ESLint configuration
+- [React.js](https://reactjs.org/) – Frontend framework  
+- [JavaScript (ES6)](https://developer.mozilla.org/en-US/docs/Web/JavaScript) – Functionality  
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) – Styling  
+- [TMDB API](https://www.themoviedb.org/documentation/api) – Movie data provider  
+- [Vercel](https://vercel.com/) – Deployment  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 🚀 Getting Started
+
+Follow these steps to run MovieHUB locally:
+
+### 1. Clone the repository
+```bash
+git clone https://github.com/Mercy036/moviehub.git
+cd moviehub
