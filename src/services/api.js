@@ -36,3 +36,18 @@ export const searchMovie = async (query) => {
   }
 };
 
+export const getGenreMap = async ()=> {
+  const res= fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`);
+  const data = await res.json();
+  const genreMap = {};
+  data.genres.forEach(g => {
+    genreMap[g.id] = g.name;
+  })
+  return genreMap;
+}
+
+const fetchMovies=async ()=>{
+  const res = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
+  const data = await res.json();
+  return data.results;
+}
