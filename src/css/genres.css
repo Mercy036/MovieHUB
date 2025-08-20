@@ -14,6 +14,14 @@
   background: var(--bg-primary, #0f0f23);
 }
 
+.coming-soon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25rem;
+  font-size: 5rem;
+}
+
 .genres h2 {
   color: rgba(255, 255, 255, 0.581);
   font-size: 4rem;
