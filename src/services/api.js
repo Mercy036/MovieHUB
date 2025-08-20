@@ -36,18 +36,53 @@ export const searchMovie = async (query) => {
   }
 };
 
-export const getGenreMap = async ()=> {
-  const res= fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`);
-  const data = await res.json();
-  const genreMap = {};
-  data.genres.forEach(g => {
-    genreMap[g.id] = g.name;
-  })
-  return genreMap;
-}
+export const getGenresWithImages = async () => {
+  try {
+    const res = await fetch(`${BASE_URL}/genre/movie/list?api_key=${API_KEY}`);
+    const data = await res.json();
 
-const fetchMovies=async ()=>{
+    const genresWithImages = await Promise.all(
+      data.genres.map(async (g) => {
+        const movies = await getMoviesByGenre(g.id);
+        const poster = movies[0]?.poster_path // first movie’s poster
+          ? `${imageBaseUrl}${movies[0].poster_path}`
+          : "https://via.placeholder.com/300x200?text=" + g.name;
+
+        return { ...g, image: poster };
+      })
+    );
+
+    return genresWithImages;
+  } catch (err) {
+    console.error("Error fetching genres with images:", err);
+    return [];
+  }
+};
+
+export const fetchMovies=async ()=>{
   const res = await fetch(`${BASE_URL}/movie/popular?api_key=${API_KEY}`);
   const data = await res.json();
   return data.results;
 }
+
+export const displayMoviesByGenres = async () => {
+  const genreMap = await getGenreMap();
+  const movies = await fetchMovies();
+  movies.forEach(movie => {
+    const names = movie.genre_ids.map(id => genreMap[id]);
+    console.log(`${movie.title}: ${names.join(', ')}`);
+});
+}
+
+export const getMoviesByGenre = async (genreId) => {
+  try {
+    const res = await fetch(
+      `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`
+    );
+    const data = await res.json();
+    return data.results || [];
+  } catch (err) {
+    console.error("Error fetching movies by genre:", err);
+    return [];
+  }
+};
